@@ -1,8 +1,18 @@
+const mongoDB = require("../app");
+mongoDB();
+const Manzils = require("../models/manzil");
+const Medias = require("../models/media");
 //POST
-const post = (req, res) => {
-  const { username, password } = req.body;
-  res.status(201).json({ message: "ok", user: { username, password } });
+const Manzil = (req, res) => {
+  const { tel, email, location, link } = req.body;
+  Manzils.create({ tel, email, location, link });
 };
+//POST
+const Media = (req, res) => {
+  const { telegram, instagram, facebook, twitter } = req.body;
+  Medias.create({ telegram, instagram, facebook, twitter });
+};
+
 //GET
 const get = (req, res) => {
   res.status(200).end();
@@ -17,4 +27,4 @@ const del = (req, res) => {
   const {} = req.params;
 };
 //EXPORT CONTROLLERS
-module.exports = { post, get, put, del };
+module.exports = { Manzil, Media, get, put, del };
