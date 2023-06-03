@@ -4,7 +4,19 @@ const fileUpload = require("express-fileupload");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const cookeiParse = require("cookie-parser");
+const multer = require("multer");
 const app = express();
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "images/");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 const { env } = require("../config");
 const PORT = env.PORT || 4000;
@@ -27,4 +39,3 @@ app.use("/", routes);
 app.listen(PORT, () => {
   console.log(PORT);
 });
-
