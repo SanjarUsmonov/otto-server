@@ -13,9 +13,6 @@ const schema = new Schema({
     type: String,
     required: true,
   },
-  category_craeted_at: {
-    category_created_at: String,
-  },
 });
 
 module.exports = model("categorie", schema);
