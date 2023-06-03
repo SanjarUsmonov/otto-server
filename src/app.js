@@ -19,7 +19,7 @@ const upload = multer({ storage: storage }).array("file");
 
 app.post("/category/image", function (req, res) {
   upload(req, res, function () {
-    return res.status(200).send(req.file);
+    return res.status(200).send("Okey");
   });
 });
 

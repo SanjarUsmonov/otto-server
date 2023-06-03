@@ -18,7 +18,5 @@ const Category = async (req, res) => {
     });
   }
 };
-// Category img
-const CategoryImage = (req, res) => {};
 
 module.exports = { Category };
